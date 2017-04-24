@@ -18,6 +18,7 @@ def generateXY(amount = 50):
 
     used = []
 
+    #POSSIBLE INFINITY LOOP
     while len(xtrain) < amount:
 
         res_word, code = genRawPair(MAX_LEN)
@@ -35,10 +36,10 @@ X,Y = generateXY(5000)
 for x,y in zip(X,Y):
     print x,y
 
-with open("/data/dataXs.txt", 'w') as f:
+with open("./data/source_5000_with_duplicates.txt", 'w') as f:
     for s in X:
         f.write(s + '\n')
 
-with open("/data/dataYs.txt", 'w') as f:
+with open("./data/target_5000_with_duplicates.txt", 'w') as f:
     for s in Y:
         f.write(s + '\n')
