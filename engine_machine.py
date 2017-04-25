@@ -22,7 +22,6 @@ class Alphabet():
     def initState(self):
         return self.ALPHABET[0]
 
-
     def genRandomSentence(self,ns=(1,2,3,4,5,6,7,8)):
         return  "".join([random.choice(self.ALPHABET) for i in range(random.choice(ns))])
 
