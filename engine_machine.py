@@ -76,10 +76,16 @@ class Machine():
         self.results += self.states[self.position]#+self.states[self.position]
 
     def randomCode(self, max_size):
-        code = "".join([random.choice(self.ALPHABET) for _ in range(random.choice(range(3,max_size-1)))])
-        #for i in range(5):
-        #    code.replace("<>","")
-        #    code.replace("><","")
-        #    code.replace("+-","")
-        #    code.replace("-+","")
+        code = "".join([random.choice(self.ALPHABET) for _ in range(random.choice(range(max_size//2,max_size-1)))])
+        pos = code.rfind('.')
+        code = code[:pos+1]
+
+        for i in range(1):
+            code.replace("<>","")
+            code.replace("><","")
+            code.replace("+-","")
+            code.replace("-+","")
+
         return code
+
+
