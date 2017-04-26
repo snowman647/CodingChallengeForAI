@@ -4,7 +4,7 @@ import numpy as np
 
 from collections import defaultdict
 
-MAX_LEN = 20
+MAX_LEN = 30
 #POSSIBLE_DUPLICATES_FOR_INPUT = 10
 
 def genRawPair(max_size):
@@ -17,9 +17,6 @@ def genRawPair(max_size):
 
 def generateXY(amount = 50):
     print "GENERATING DATA",amount
-
-    #used_words = set()
-    used_code = set() #only one in res
 
     proceeded_codes = set()
     results = {}
@@ -48,15 +45,7 @@ def generateXY(amount = 50):
             rate = float(len(res_word))/len(code) # bigger is better
 
             if (res_word in code_best_rate.keys() and rate > code_best_rate[res_word]) \
-                    or (res_word not in code_best_rate.keys()) \
-                    \
-                    and code not in used_code:
-
-                #xtrain.append(res_word) #ABC
-                #ytrain.append(code) #+-+
-
-                #used_words.append(res_word)
-                used_code.add(code)
+                    or (res_word not in code_best_rate.keys()):
 
                 results[res_word] = code
                 code_best_rate[res_word] = rate
@@ -77,7 +66,7 @@ def generateXY(amount = 50):
 
     return xtrain,ytrain
 
-X,Y = generateXY(5000)
+X,Y = generateXY(20000)
 
 for x,y in zip(X,Y):
     print x,y
