@@ -1,6 +1,6 @@
 
 from engine_machine import Machine, Alphabet
-import numpy as np
+#import numpy as np
 
 from collections import defaultdict
 
@@ -50,7 +50,8 @@ def generateXY(amount = 50):
                 results[res_word] = code
                 code_best_rate[res_word] = rate
 
-                avr_rate = np.mean(code_best_rate.values())
+                rates=code_best_rate.values()
+                avr_rate = float(sum(rates))/len(rates)
                 i+=1
                 if i % 100 == 0:
                     print "i=",i,"len(results)=", len(results), "AVR rate", avr_rate
@@ -66,16 +67,16 @@ def generateXY(amount = 50):
 
     return xtrain,ytrain
 
-X,Y = generateXY(20000)
+X,Y = generateXY(50000)
 
 for x,y in zip(X,Y):
     print x,y
 
-with open("./data/dataXs_1.txt", 'w') as f:
+with open("./data/dataXs_3.txt", 'w') as f:
     for s in X:
         f.write(s + '\n')
 
-with open("./data/dataYs_1.txt", 'w') as f:
+with open("./data/dataYs_3.txt", 'w') as f:
     for s in Y:
         f.write(s + '\n')
 
@@ -103,6 +104,6 @@ while len(cross) < 2000:
 
 print cross
 
-with open("./data/dataCross_1.txt", 'w') as f:
+with open("./data/dataCross_3.txt", 'w') as f:
     for s in cross:
         f.write(s + '\n')
