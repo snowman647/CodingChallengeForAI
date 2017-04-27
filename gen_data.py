@@ -72,11 +72,11 @@ X,Y = generateXY(50000)
 for x,y in zip(X,Y):
     print x,y
 
-with open("./data/dataXs_3.txt", 'w') as f:
+with open("./data/dataXs_4.txt", 'w') as f:
     for s in X:
         f.write(s + '\n')
 
-with open("./data/dataYs_3.txt", 'w') as f:
+with open("./data/dataYs_4.txt", 'w') as f:
     for s in Y:
         f.write(s + '\n')
 
@@ -104,6 +104,6 @@ while len(cross) < 2000:
 
 print cross
 
-with open("./data/dataCross_3.txt", 'w') as f:
+with open("./data/dataCross_4.txt", 'w') as f:
     for s in cross:
         f.write(s + '\n')

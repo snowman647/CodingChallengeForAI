@@ -1,7 +1,7 @@
 import random
 
 class Alphabet():
-    ALPHABET = 'abc'
+    ALPHABET = 'abcdef'
     #ALPHABET = "+-<>."
     def nextLetterAfter(self, letter):
         idx = self.ALPHABET.index(letter)
